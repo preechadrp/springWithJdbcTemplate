@@ -1,0 +1,42 @@
+package com.example.springWithJdbcTemplate.config;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+@Configuration
+public class Db2Config {
+
+	@Bean
+	@ConfigurationProperties("app.datasource.db2")
+	DataSource db2DataSource() {
+		return DataSourceBuilder.create().build();
+	}
+
+	@Bean
+	JdbcTemplate jdbcTemplateDb2(
+			@Qualifier("db2DataSource") DataSource ds) {
+
+		return new JdbcTemplate(ds);
+	}
+	
+	/* ตัวอย่างการใช้งาน ต้องระบุ @Qualifier("jdbcTemplateDb2") ส่วนตัวหลักไม่ต้องใส่
+	 @Repository
+	public class LogRepository {
+	
+	    private final JdbcTemplate jdbcTemplate;
+	
+	    public LogRepository(@Qualifier("jdbcTemplateDb2") JdbcTemplate jdbcTemplate) {
+	
+	        this.jdbcTemplate = jdbcTemplate;
+	    }
+	
+	}
+	 */
+
+}
