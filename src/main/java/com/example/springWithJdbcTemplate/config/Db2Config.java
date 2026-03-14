@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 @Configuration
 public class Db2Config {
-
+    //ตัวอย่างการเชื่อม database ตัวที่ 2
 	@Bean
 	@ConfigurationProperties("app.datasource.db2")
 	DataSource db2DataSource() {
