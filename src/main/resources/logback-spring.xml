@@ -15,19 +15,29 @@
 		<file>${LOG_DIR}/applog.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>${LOG_DIR}/applog.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+			<!-- เก่าเกิน 30 วันให้ลบ -->
+			<maxHistory>30</maxHistory>
 		</rollingPolicy>
 		<encoder>
 			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
 		</encoder>
 	</appender>
 
-	<!-- trace, debug, info, warn, error -->
-	<root level="info">
-		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="ROLLING" />
-	</root>
-
-	<!-- <logger name="org.eclipse.jetty" level="WARN" /> -->
-
+	<springProfile name="dev">
+	    <!-- trace, debug, info, warn, error -->
+		<root level="debug">
+			<appender-ref ref="CONSOLE" />
+			<appender-ref ref="ROLLING" />
+		</root>
+	
+		<!-- <logger name="org.eclipse.jetty" level="WARN" /> -->
+	</springProfile>
+	
+	<springProfile name="prod">
+	    <root level="info">
+			<appender-ref ref="CONSOLE" />
+			<appender-ref ref="ROLLING" />
+		</root>
+	</springProfile>
 
 </configuration>
