@@ -13,3 +13,15 @@ DataSource
 HikariCP
    ↓
 Database
+
+=== ลำดับการ override config Spring จะอ่านตามลำดับ
+
+application.properties
+↓
+application-{profile}.properties
+↓
+environment variable
+↓
+command line
+
+ค่าล่างจะ override ค่าบน
