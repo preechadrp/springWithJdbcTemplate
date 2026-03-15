@@ -50,6 +50,12 @@
 		
 		<!-- manual -->
 		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/org.firebirdsql.jdbc/jaybird -->
 		<dependency>
 		    <groupId>org.firebirdsql.jdbc</groupId>
@@ -63,7 +69,8 @@
 		   <version>1.18.4</version>
 		   <scope>provided</scope>
 		</dependency>
-		
+
+
 		
 	</dependencies>
 
