@@ -10,6 +10,9 @@ import com.example.springWithJdbcTemplate.dto.User;
 import com.example.springWithJdbcTemplate.repository.UserRepository;
 import com.example.springWithJdbcTemplate.service.UserService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j  //สร้างตัวแปร log อัตโนมัติ
 @RestController
 public class UserController {
 
@@ -21,6 +24,7 @@ public class UserController {
 
 	@GetMapping("/api/user")
 	public List<User> getAllUser() {
+		log.info("/api/user");
 		return this.usersRepo.findAll();
 	}
 

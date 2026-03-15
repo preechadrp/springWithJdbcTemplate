@@ -5,14 +5,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.springWithJdbcTemplate.repository.UserRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
+	//ฟิลด์ที่เป็น final ระบบจะ inject ให้ใน constructor อัตโนมัติ
 	private final UserRepository repo;
 
-	public UserService(UserRepository repo) {
-		this.repo = repo;
-	}
+	//ตรงนี้ใช้ @RequiredArgsConstructor สร้างแทน
+	//public UserService(UserRepository repo) {
+	//	this.repo = repo;
+	//}
 
 	@Transactional(rollbackFor = Exception.class) //เพื่อให้ db commit
     public void insertUser() {
