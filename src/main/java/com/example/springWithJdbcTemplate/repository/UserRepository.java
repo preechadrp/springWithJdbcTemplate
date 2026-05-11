@@ -26,9 +26,9 @@ public class UserRepository {
 
 		return jdbcTemplate.query(sql, (rs, rowNum) -> new User().setUserid(rs.getInt("USER_ID"))
 				.setUsername(rs.getString("USER_NAME"))
-				.setBirthDay(rs.getDate("BIRTH_DAY") != null ? rs.getDate("BIRTH_DAY").toLocalDate() : null)
+				.setBirthDay(rs.getObject("BIRTH_DAY", LocalDate.class))
 				.setCreatedBy(rs.getString("CREATED_BY"))
-				.setCreatedDate(rs.getTimestamp("CREATED_DATE") != null ? rs.getTimestamp("CREATED_DATE").toLocalDateTime() : null));
+				.setCreatedDate(rs.getObject("CREATED_DATE", LocalDateTime.class)));
 	}
 
 	public void insertUser() {
