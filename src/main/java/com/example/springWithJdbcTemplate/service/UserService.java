@@ -3,7 +3,7 @@ package com.example.springWithJdbcTemplate.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.springWithJdbcTemplate.repository.UserRepository;
+import com.example.springWithJdbcTemplate.dao.UserDao;
 
 import lombok.RequiredArgsConstructor;
 
@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
 
 	//ฟิลด์ที่เป็น final ระบบจะ inject ให้ใน constructor อัตโนมัติ
-	private final UserRepository repo;
+	private final UserDao repo;
 	
 	//แก้ self-invocation ,ไม่ใช่ best practice ,ใช้กรณีเรียก method ใน class ตัวเอง+@Transactional
 	//@Autowired

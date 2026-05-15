@@ -1,4 +1,4 @@
-package com.example.springWithJdbcTemplate.repository;
+package com.example.springWithJdbcTemplate.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
-public class UserRepository {
+public class UserDao {
 
 	private final JdbcTemplate jdbcTemplate;
 

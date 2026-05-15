@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.springWithJdbcTemplate.dao.UserDao;
 import com.example.springWithJdbcTemplate.dto.User;
-import com.example.springWithJdbcTemplate.repository.UserRepository;
 import com.example.springWithJdbcTemplate.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
 
 	@Autowired
-	private UserRepository usersRepo;
+	private UserDao usersRepo;
 
 	@Autowired
 	private UserService userService;
