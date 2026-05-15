@@ -34,8 +34,6 @@
 			<appender-ref ref="CONSOLE" />
 			<appender-ref ref="ROLLING" />
 		</root>
-	
-		<!-- <logger name="org.eclipse.jetty" level="WARN" /> -->
 	</springProfile>
 	
 	<springProfile name="prod">
