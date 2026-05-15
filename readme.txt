@@ -1,3 +1,5 @@
+- GlobalExceptionHandler
+- ทดสอบเชื่อม 2 database
 
 == หลักการ ==
 HTTP Request  //Client Request
