@@ -16,5 +16,5 @@ public class CustomErrorResponse {
 	private int errorCode;
 
 	@JsonProperty("error_message")
-	private String errMessage;
+	private String errorMessage;
 }
