@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import com.example.springWithJdbcTemplate.dto.CustomErrorResponse;
-import com.example.springWithJdbcTemplate.exception.BusinessException;
+import com.example.springWithJdbcTemplate.exception.AppException;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,8 +15,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GlobalExceptionHandler {
 
-	@ExceptionHandler(BusinessException.class)
-	public ResponseEntity<CustomErrorResponse> handleBusinessException(BusinessException ex) {
+	@ExceptionHandler(AppException.class)
+	public ResponseEntity<CustomErrorResponse> handleBusinessException(AppException ex) {
 
 		log.error("Business Error: Code={}, Message={}", ex.getErrorCode(), ex.getMessage(), ex);
 
