@@ -20,7 +20,8 @@ public class GlobalExceptionHandler {
 
 		log.error("Business Error: Code={}, Message={}", ex.getErrorCode(), ex.getMessage(), ex);
 
-		CustomErrorResponse error = new CustomErrorResponse(ex.getErrorCode(), ex.getMessage());
+		String msg = (ex.getMessage() != null) ? ex.getMessage() : "Internal Server Error";
+		CustomErrorResponse error = new CustomErrorResponse(ex.getErrorCode(), msg);
 
 		// ตรวจสอบว่า errorCode เป็น HTTP Status (400-599) หรือไม่
 		// ถ้าไม่ใช่ (เช่น เป็นเลข 1, 2, 3) ให้ส่ง HTTP 400 Bad Request กลับไปแทน
