@@ -11,7 +11,7 @@ Service (@Transactional)    //business logic ควรใช้ @Transactional(r
    ↓
 Repository (JdbcTemplate)   //database access
    ↓
-DataSource
+DataSource (แต่ในตัวอย่างนี้ใช้ HikariDataSource โดยตรง)
    ↓
 HikariCP
    ↓
