@@ -12,13 +12,14 @@ import org.springframework.stereotype.Repository;
 
 import com.example.springWithJdbcTemplate.dto.User;
 
-import lombok.RequiredArgsConstructor;
-
 @Repository
-@RequiredArgsConstructor
 public class UserDao {
 
 	private final JdbcTemplate jdbcTemplate;
+
+	public UserDao(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 
 	public List<User> findAll() {
 

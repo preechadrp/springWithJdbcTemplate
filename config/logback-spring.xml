@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-	<!-- ดึงจาก vm argument -DmyLogPath -->
-	<property name="LOG_DIR" value="${myLogPath:-.}/logs" />
+	<property name="LOG_DIR" value="./logs" />
 	<property name="LOG_NAME" value="applog" />
 
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
