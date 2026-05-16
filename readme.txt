@@ -1,5 +1,6 @@
 - GlobalExceptionHandler
 - ทดสอบเชื่อม 2 database
+- @Bean Methods ใช้ใน @Configuration Classes
 
 == หลักการ ==
 HTTP Request  //Client Request
