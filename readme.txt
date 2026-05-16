@@ -1,6 +1,9 @@
 - GlobalExceptionHandler
-- ทดสอบเชื่อม 2 database
 - @Bean Methods ใช้ใน @Configuration Classes
+- ทดสอบเชื่อม 2 database
+- link ทดสอบ
+  http://localhost:8080/api/user  สำหรับเชื่อม db1
+  http://localhost:8080/api/user2  สำหรับเชื่อม db2
 
 == หลักการ ==
 HTTP Request  //Client Request
