@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DatabaseConfig {
 
+	//======== datasource1 =========//
 	@Primary
 	@Bean(name = "dataSourceDb1")
 	@ConfigurationProperties(prefix = "spring.datasource1")
@@ -28,6 +29,8 @@ public class DatabaseConfig {
 		log.debug("Init jdbcTemplateDb1");
 		return new JdbcTemplate(ds);
 	}
+
+	//======== datasource2 =========//
 
 	@Bean(name = "dataSourceDb2")
 	@ConfigurationProperties(prefix = "spring.datasource2")
