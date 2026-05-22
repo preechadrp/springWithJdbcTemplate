@@ -47,7 +47,11 @@ public class UserRepository2 {
 
 			//System.out.println("idx " + idx);
 
-			String sql = "INSERT INTO USER_TABLE(USER_ID,USER_NAME,BIRTH_DAY,CREATED_DATE,CREATED_BY) VALUES (?,?,?,?,?)";
+			String sql = """
+					    INSERT INTO USER_TABLE
+					    (USER_ID,USER_NAME,BIRTH_DAY,CREATED_DATE,CREATED_BY)
+					    VALUES (?,?,?,?,?)
+					""";
 
 			jdbcTemplate.update(sql,
 					user.getUserid(),
