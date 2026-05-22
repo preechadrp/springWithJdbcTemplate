@@ -17,7 +17,7 @@ public class DatabaseConfig {
 
 	@Primary
 	@Bean(name = "dataSourceDb1")
-	@ConfigurationProperties(prefix = "spring.datasource.db1")
+	@ConfigurationProperties(prefix = "spring.datasource1")
 	HikariDataSource dataSourceDb1() {
 		return new HikariDataSource();
 	}
@@ -30,7 +30,7 @@ public class DatabaseConfig {
 	}
 
 	@Bean(name = "dataSourceDb2")
-	@ConfigurationProperties(prefix = "spring.datasource.db2")
+	@ConfigurationProperties(prefix = "spring.datasource2")
 	HikariDataSource dataSourceDb2() {
 		return new HikariDataSource();
 	}
