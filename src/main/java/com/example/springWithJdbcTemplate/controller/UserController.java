@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springWithJdbcTemplate.dao.UserDao;
-import com.example.springWithJdbcTemplate.dao.UserDao2;
-import com.example.springWithJdbcTemplate.dto.User;
+import com.example.springWithJdbcTemplate.entity.User;
+import com.example.springWithJdbcTemplate.repository.UserRepository;
+import com.example.springWithJdbcTemplate.repository.UserRepository2;
 import com.example.springWithJdbcTemplate.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,12 +16,12 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 public class UserController {
 
-	private final UserDao usersRepo;
-	private final UserDao2 usersRepo2;
+	private final UserRepository usersRepo;
+	private final UserRepository2 usersRepo2;
 	private final UserService userService;
 
-	public UserController(UserDao usersRepo,
-			UserDao2 usersRepo2,
+	public UserController(UserRepository usersRepo,
+			UserRepository2 usersRepo2,
 			UserService userService) {
 
 		this.usersRepo = usersRepo;

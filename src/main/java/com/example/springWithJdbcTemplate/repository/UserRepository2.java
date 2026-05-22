@@ -1,4 +1,4 @@
-package com.example.springWithJdbcTemplate.dao;
+package com.example.springWithJdbcTemplate.repository;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -6,18 +6,20 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.springWithJdbcTemplate.dto.User;
+import com.example.springWithJdbcTemplate.entity.User;
 
 @Repository
-public class UserDao {
+public class UserRepository2 {
 
 	private final JdbcTemplate jdbcTemplate;
 
-	public UserDao(JdbcTemplate jdbcTemplate) {
+	//ต้องระบุ @Qualifier("jdbcTemplateDb2") ด้วยสำหรับตัวที่ไม่ใช่ @Primary
+	public UserRepository2(@Qualifier("jdbcTemplateDb2") JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
