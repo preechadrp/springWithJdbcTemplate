@@ -43,7 +43,9 @@ public class UserController {
 
 	@GetMapping("/api/userInsert")
 	public List<User> insertUser() {
+
 		this.userService.insertUser();
+
 		return this.usersRepo.findAll();
 	}
 
