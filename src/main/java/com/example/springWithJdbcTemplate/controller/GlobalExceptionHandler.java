@@ -6,14 +6,19 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import com.example.springWithJdbcTemplate.dto.CustomErrorResponse;
 import com.example.springWithJdbcTemplate.exception.AppException;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
+
+	public record CustomErrorResponse(
+			@JsonProperty("error_code") int errorCode,
+			@JsonProperty("error_message") String errorMessage) {
+	};
 
 	@ExceptionHandler(AppException.class)
 	public ResponseEntity<CustomErrorResponse> handleBusinessException(AppException ex) {
