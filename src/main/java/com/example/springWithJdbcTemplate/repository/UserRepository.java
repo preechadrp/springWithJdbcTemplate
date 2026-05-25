@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.example.springWithJdbcTemplate.entity.User;
@@ -17,19 +18,25 @@ public class UserRepository {
 
 	private final JdbcTemplate jdbcTemplate;
 
+	private final RowMapper<User> userMapper = (rs, rowNum) -> {
+
+		return new User()
+				.setUserid(rs.getInt("USER_ID"))
+				.setUsername(rs.getString("USER_NAME"))
+				.setBirthDay(rs.getObject("BIRTH_DAY", LocalDate.class))
+				.setCreatedBy(rs.getString("CREATED_BY"))
+				.setCreatedDate(rs.getObject("CREATED_DATE", LocalDateTime.class));
+
+	};
+
 	public UserRepository(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
 	public List<User> findAll() {
 
-		String sql = "SELECT USER_ID,USER_NAME ,BIRTH_DAY,CREATED_DATE,CREATED_BY FROM USER_TABLE order by USER_ID";
-
-		return jdbcTemplate.query(sql, (rs, rowNum) -> new User().setUserid(rs.getInt("USER_ID"))
-				.setUsername(rs.getString("USER_NAME"))
-				.setBirthDay(rs.getObject("BIRTH_DAY", LocalDate.class))
-				.setCreatedBy(rs.getString("CREATED_BY"))
-				.setCreatedDate(rs.getObject("CREATED_DATE", LocalDateTime.class)));
+		String sql = "SELECT * FROM USER_TABLE order by USER_ID";
+		return jdbcTemplate.query(sql, userMapper);
 	}
 
 	public void insertUser() {
