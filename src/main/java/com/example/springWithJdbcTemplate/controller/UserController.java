@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springWithJdbcTemplate.entity.User;
+import com.example.springWithJdbcTemplate.model.User;
 import com.example.springWithJdbcTemplate.repository.UserRepository;
 import com.example.springWithJdbcTemplate.repository.UserRepository2;
 import com.example.springWithJdbcTemplate.service.UserService;

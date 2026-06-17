@@ -1,4 +1,4 @@
-package com.example.springWithJdbcTemplate.entity;
+package com.example.springWithJdbcTemplate.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

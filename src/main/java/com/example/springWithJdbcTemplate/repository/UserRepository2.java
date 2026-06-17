@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.example.springWithJdbcTemplate.entity.User;
+import com.example.springWithJdbcTemplate.model.User;
 
 @Repository
 public class UserRepository2 {
