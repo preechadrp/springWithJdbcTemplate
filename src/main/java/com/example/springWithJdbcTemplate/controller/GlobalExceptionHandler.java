@@ -23,7 +23,11 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(AppException.class)
 	public ResponseEntity<CustomErrorResponse> handleBusinessException(AppException ex) {
 
-		log.error("AppException : Code={}", ex.getErrorCode(), ex);
+		if (ex.getCause() != null) {
+			log.error("Code={}", ex.getErrorCode(), ex);
+		} else {
+			log.error("{}", ex.getMessage());
+		}
 
 		String msg = (ex.getMessage() != null) ? ex.getMessage() : "Internal Server Error";
 		CustomErrorResponse error = new CustomErrorResponse(ex.getErrorCode(), msg);
