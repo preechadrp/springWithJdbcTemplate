@@ -19,6 +19,11 @@ public class UserRepository2 {
 
 	private final JdbcTemplate jdbcTemplate;
 
+	//ต้องระบุ @Qualifier("jdbcTemplateDb2") ด้วยสำหรับตัวที่ไม่ใช่ @Primary
+	public UserRepository2(@Qualifier("jdbcTemplateDb2") JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
 	private final RowMapper<User> userMapper = (rs, rowNum) -> {
 
 		return new User()
@@ -29,11 +34,6 @@ public class UserRepository2 {
 				.setCreatedDate(rs.getObject("CREATED_DATE", LocalDateTime.class));
 
 	};
-
-	//ต้องระบุ @Qualifier("jdbcTemplateDb2") ด้วยสำหรับตัวที่ไม่ใช่ @Primary
-	public UserRepository2(@Qualifier("jdbcTemplateDb2") JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
 
 	public List<User> findAll() {
 

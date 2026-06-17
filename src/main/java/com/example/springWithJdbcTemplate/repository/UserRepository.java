@@ -18,6 +18,10 @@ public class UserRepository {
 
 	private final JdbcTemplate jdbcTemplate;
 
+	public UserRepository(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
 	private final RowMapper<User> userMapper = (rs, rowNum) -> {
 
 		return new User()
@@ -28,10 +32,6 @@ public class UserRepository {
 				.setCreatedDate(rs.getObject("CREATED_DATE", LocalDateTime.class));
 
 	};
-
-	public UserRepository(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
 
 	public List<User> findAll() {
 
