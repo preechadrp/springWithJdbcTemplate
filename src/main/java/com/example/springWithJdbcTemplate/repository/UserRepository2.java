@@ -46,7 +46,8 @@ public class UserRepository2 {
 		int start = 2011;
 		int to = start + 10;
 		for (int idx = start; idx < to; idx++) {
-			var user = new User().setUserid(idx)
+			var user = new User()
+					.setUserid(idx)
 					.setUsername("user " + idx)
 					.setBirthDay(LocalDate.now())
 					.setCreatedBy("c" + idx)
